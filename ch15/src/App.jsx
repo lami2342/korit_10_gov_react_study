@@ -14,8 +14,8 @@ function App() {
         <div css={s.inputbox}>
           <input type="password" name="password" id="pw" placeholder='비밀번호' />
         </div>
-        <div >
-          <button css={s.buttonbox}>사용자 정보 등록</button>
+        <div css={s.buttonbox}>
+          <button disabled={true}>사용자 정보 등록</button>
         </div>
       </div>
     </>

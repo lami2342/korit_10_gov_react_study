@@ -17,28 +17,50 @@ export const inputbox = css`
   margin-bottom: 10px;
   
   & > input {
-      outline: none;
     box-sizing: border-box;
-    width: 100%;
-    padding-bottom: 5px;
-    height: 40px;
+    outline: none;
+    border: 1px solid #888;
+    border-radius: 4px;
     padding: 10px;
+    width: 100%;
+    height: 40px;
+    cursor: pointer;
+
+    &:hover{
+      box-shadow: 0 0 3px #000033;
+    }
+    &:active{
+      box-shadow: 0 0 3px #000033 inset; 
+    }
+    &:focus{
+     box-shadow: 0 0 3px #4fdb79 inset;
+    }
   }
 `;
 
 export const buttonbox = css`
-height: 30px;   
-width: 100%;
-background-color: blue;
-align-items: center;
-justify-content: center;
-color: white;
-border-radius: 4px;
+&>button{
 
-:hover{
-    background-color: #17177c;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: none;
+  width: 100%;
+  height: 30px;   
+  background-color: #3232ff;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+
+  &:hover{
+    background-color: #0f0fb3;
+  }
+  &:active{
+    background-color: #0a0a8b;
+  }
+  &:disabled{
+background-color: #aaa8a8;
+cursor: default;
+  }
 }
-:active{
-    background-color: #3131af;
-}
-`
+  `
