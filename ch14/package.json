@@ -1,5 +1,5 @@
 {
-  "name": "ch13",
+  "name": "ch14",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,7 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "modal": "^0.7.4",
+    "@emotion/react": "^11.14.0",
+    "install": "^0.13.0",
+    "npm": "^11.14.0",
     "react": "^19.2.5",
     "react-dom": "^19.2.5"
   },

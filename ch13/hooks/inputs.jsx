@@ -1,30 +1,35 @@
-import REGEX from './constant/regx'
+import { REGEX } from "../constants/regex";
+import { useState, useEffect } from 'react';
 
-export function useInput(initValue){
-  const [inputValues, setInputValues] = useState(initValue);
-
-  const [isValid, setValid] = useState(false);
-
+export function useInput({initValue}) {
+    const [ inputValues, setInputValues ] = useState(initValue);
+    const [ isValid, setValid ] = useState(false);
 
     useEffect(() => {
-    const entries = Object.entries(inputValues);
-    const validList = entries.filter(([key, value]) => {
-      const regex = REGEX[key];
-      if (!regex) return true;
-      return regex.test(value);
-    });
+        const entries = Object.entries(inputValues);
+        const validList = entries.filter(([key, value]) => {
+            const regex = REGEX[key];
+            if (!regex) return true;
+            return regex.test(value);
+        });
 
-    // return 대신 setValid로 상태 업데이트
-    setValid(validList.length === entries.length);
+        setValid(validList.length === entries.length);
 
-  }, [inputValues]);
+    }, [inputValues]);
 
-  const handleInputOnChange = (e) => {
-    const { name, value } = e.target;
+    const handleInputOnChange = (e) => {
+        const { name, value } = e.target;
 
-    setInputValues({
-      ...inputValues,
-      [name]: value,
-    })
-  }
+        setInputValues({
+            ...inputValues,
+            [name]: value,
+        })
+    } 
+
+    return {
+        inputValues,
+        setInputValues,
+        isValid,
+        handleInputOnChange
+    }
 }
