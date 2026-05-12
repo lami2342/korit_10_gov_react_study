@@ -10,9 +10,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+<<<<<<< HEAD
     "modal": "^0.7.4",
     "react": "^19.2.5",
     "react-dom": "^19.2.5"
+=======
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "react-modal": "^3.16.3"
+>>>>>>> 19b6e89d972e27111eff49164a5644309456b183
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

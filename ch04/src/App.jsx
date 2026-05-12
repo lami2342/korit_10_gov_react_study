@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
 function App() {
+<<<<<<< HEAD
   const [text, setText] = useState('')
   const [content, setContent] = useState('')
   const [text2, setText2] = useState('')
@@ -30,6 +31,34 @@ function App() {
 
       <h1>내용:{content}</h1>
       <h1>내용:{content2}</h1>
+=======
+
+  const [ inputValue, setInputValue ] = useState("");
+  const [ content, setContent ] = useState("");
+  const [ inputValue2, setInputValue2 ] = useState("");
+  const [ content2, setContent2 ] = useState("");
+
+  const handleOnClick = (e) => {
+    setContent(inputValue);
+    setContent2(inputValue2);
+  }
+
+  const handleOnChange = (e) => {
+    setInputValue(e.target.value);
+  }
+
+  const handleOnChange2 = (e) => {
+    setInputValue2(e.target.value);
+  }
+
+  return (
+    <>
+      <input type="text" onChange={handleOnChange} />
+      <input type="text" onChange={handleOnChange2} />
+      <button onClick={handleOnClick}>출력</button>
+      <h1>내용1: {content}</h1>
+      <h1>내용2: {content2}</h1>
+>>>>>>> 19b6e89d972e27111eff49164a5644309456b183
     </>
   )
 }
