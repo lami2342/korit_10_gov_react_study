@@ -5,26 +5,30 @@ function App() {
   new Promise((resolve, reject) => {
     console.log(8);
     if (false) {
-      resolve();
+      resolve("성공데이터");
     } else {
-      reject();
+      reject(new Error("실패데이터"));
     }
-  }).then(() => {
+  }).then((value) => {
     console.log(9)
-  }).catch(() => {//자신 객체를 지속적으로 return 한다
+    console.log(value)
+  }).catch((reason) => {//자신 객체를 지속적으로 return 한다
     console.log(10)
+    console.log(Error)
   });
   new Promise((resolve, reject) => {
     console.log(11);
     if (true) {
-      resolve();
+      resolve("성공데이터");
     } else {
-      reject();
+      reject("실패데이터");
     }
-  }).then(() => {
-    console.log(12)
-  }).catch(() => {//자신 객체를 지속적으로 return 한다
-    console.log(13)
+  }).then((value) => {
+    console.log(9)
+    console.log(value)
+  }).catch((reason) => {//자신 객체를 지속적으로 return 한다
+    console.log(10)
+    console.log(reason)
   });
 
   console.log(1)//10초
