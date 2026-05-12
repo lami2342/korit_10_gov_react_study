@@ -6,6 +6,9 @@ import { useEffect, useState } from "react";
 
 function Game() {
     const params = useParams();
+
+    
+
     const [ cards, setCards ] = useState([]);
 
     const handleCardOpneOnClick = (id) => {

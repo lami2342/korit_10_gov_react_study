@@ -53,15 +53,16 @@ export const layout = css`
         width: 100%;
         height: 100%;
     }
-    
 `;
 
+
 export const centerContainer = css`
-display: flex;
-box-sizing: border-box;
-align-items: center;
-justify-content: center;
-flex-grow: 1;
+  display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+      align-items: center;
+    justify-content: center;
+    flex-grow: 1;
 
 @keyframes startButton {
     0%{
@@ -72,37 +73,32 @@ transform: scale(110%);
     }
 }
 &>h1{
-    margin: 0;
-    font-size: 70px;
-    color: white;
-    cursor: default;
+        margin: 0;
+        font-size: 70px;
+        color: #c5c5c5;
     
 }
 
 &>button{
-     display: flex;
-            align-items: center;
-            gap: 5px;
-            margin: 0 0 10px;
-
-            font-size: 50px;
-            font-family: 600;
-            color: transparent;
-            -webkit-text-fill-color: transparent;
-            background: linear-gradient(90deg,rgba(115, 10, 36, 1) 0%, rgba(131, 166, 109, 1) 100%);    
-            background-clip: text;
-            -webkit-background-clip: text;
-            cursor: pointer;
-            transition: all 0.3 ease-in-out;
-            text-shadow: 0 0 10px #ffffff33;
-            animation-name: startButton;
-            animation-duration: 1s;
-            animation-timing-function: inherit;
-            animation-iteration-count: infinite;
-            animation-direction: alternate;
-
-            &:hover{
-                transform: scale(1.05);
+        border: none;
+        font-size: 50px;
+        font-family: 600;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+        background: linear-gradient(90deg,rgba(115, 10, 36, 1) 0%, rgba(131, 166, 109, 1) 100%);    
+        background-clip: text;
+        -webkit-background-clip: text;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        text-shadow: 0 0 10px #ffffff33;
+        animation-name: startButton;
+        animation-duration: 1s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+        animation-direction: alternate ;
+        
+        &:hover {
+            animation-iteration-count: 0;
 
 
             }

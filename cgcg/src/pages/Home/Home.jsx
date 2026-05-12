@@ -1,9 +1,8 @@
-import { useNavigate, useSearchParams } from "react-router-dom";
-import * as s from "./style"
-import { GiCardRandom } from "react-icons/gi";
 import { useState } from "react";
+import * as s from "./styles";
+import { GiCardRandom } from "react-icons/gi";
 import Swal from "sweetalert2";
-
+import { useNavigate } from "react-router-dom";
 
 function Home() {
     const navigate = useNavigate();
@@ -12,34 +11,52 @@ function Home() {
     const handleInputOnChange = (e) => {
         setInputValue(e.target.value);
     }
-    const handleStartOnClick = (e) => {
-        if (!inputValue.trim()) {//유효성 검사 추가
+
+    const handleStartOnClick = () => {
+        if (!inputValue.trim()) {
             setInputValue("");
             Swal.fire({
                 title: "게임 시작 실패",
-                text: "게임을 시작하려면 이름을 입력하세요",
+                text: "게임을 시작하려면 이름을 입력하세요.",
                 icon: "warning"
             });
             return;
         }
-        navigate("/game");
+        fetch("http://localhost:8080/api/users", {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                username: inputValue,
+            })
+        }).then(response => {
+            response.json().then(
+                json => console.log(json)
+            )
+        });
+
+        navigate(`/game/${inputValue}`);
     }
 
-    console.log("Home");
     return <>
         <div css={s.layout}>
             <header>
-                <h1><GiCardRandom/>CARD MATHING GAME<GiCardRandom/></h1>
+                <h1><GiCardRandom />CARD MATCHING GAME<GiCardRandom /></h1>
             </header>
             <main>
-                <div css={s.username}>
-                    <input type="text" placeholder="플레이어 이름" value={inputValue} onChange={handleInputOnChange}/>
+                <div css={s.usernameInput}>
+                    <input type="text"
+                        placeholder="플레이어 이름"
+                        value={inputValue}
+                        onChange={handleInputOnChange} />
                 </div>
                 <div css={s.startButton}>
-                    <button onClick={handleStartOnClick}>시작하기</button>   
+                    <button onClick={handleStartOnClick}>시작하기</button>
                 </div>
             </main>
         </div>
     </>
 }
+
 export default Home;

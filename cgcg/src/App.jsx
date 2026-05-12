@@ -1,20 +1,19 @@
 import { Global } from '@emotion/react'
 import { useState } from 'react'
-import { reset } from './styles/reset'
-import MainLayout from './components/MainLayout/MainLayout'
-import MainRoutes from './routes/MainRoutes'
+import { reset } from '../../cgcg/src/styles/reset'
+import MainLayout from '../../cgcg/src/components/MainLayout/MainLayout'
+import MainRoutes from '../../cgcg/src/routes/MainRoutes'
 
 function App() {
 
-	return (
-		<>
-			<Global styles={reset} />
-			<MainLayout>
-				<MainRoutes/>
-			</MainLayout>
-
-		</>
-	)
+  return (
+    <>
+      <Global styles={reset} />
+      <MainLayout>
+        <MainRoutes />
+      </MainLayout>
+    </>
+  )
 }
 
 export default App
