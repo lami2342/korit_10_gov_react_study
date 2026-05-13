@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ex" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/korit_10_gov_react_study" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/react-mastery" vcs="Git" />
+  </component>
+</project>
