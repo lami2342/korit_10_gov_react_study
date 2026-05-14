@@ -13,12 +13,12 @@ function RootRoutes() {
 
     if (!authenticationQuery.isLoading) {
         const status = authenticationQuery.status;
-        if (status !== 200 && !pathname.startWith("/auth/")) {
+        if (status !== 200 && !pathname.startWith("/auth")) {
             navigate("/auth/signin", {
                 replace: true,
             })
         }
-        if(status === 200 && pathname.startWith("/auth/")){
+        if(status === 200 && pathname.startWith("/auth")){
             navigate("/",{
                 replace:true,
             })

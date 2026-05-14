@@ -34,7 +34,9 @@ export function useAuthentication(accessToken) {
             } catch (error) {
                 return error
             }
-        }
+        },
+        staleTime:1000 * 60 * 2,
+        gcTime:1000 * 60 * 5,
     });
 }
 
