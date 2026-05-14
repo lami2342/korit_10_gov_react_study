@@ -16,7 +16,7 @@ box-sizing: border-box;
 flex-direction: column;
 border: 1px solid #dbdbdb;
 border-radius: 8px;
-width: ${size === "full"?"1000px":"700px"};
+width: ${size === "full" ? "1000px" : "700px"};
 height: 700px;
 background-color: white;
 overflow: hidden;

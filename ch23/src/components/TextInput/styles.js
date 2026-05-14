@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
 
-export const label =css`
+export const label = css`
 display: block;
 width: 100%;
 font-size: 13px;

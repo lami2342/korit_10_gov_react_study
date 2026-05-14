@@ -22,7 +22,7 @@ function AuthLayout({ children }) {
             </div>
             <div css={s.right}>
                 <header>
-                    <h1><LuPencil/> PostLab</h1>
+                    <h1><LuPencil /> PostLab</h1>
                 </header>
                 {children}
             </div>

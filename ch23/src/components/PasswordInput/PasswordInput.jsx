@@ -4,23 +4,29 @@ import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 
 
 
-function PasswordInput({ title, name }) {
+function PasswordInput({ title, name, value, onChange }) {
     const [type, setType] = useState("password");
 
-    const handleHiddenOnClick= () => {
-        setType(type === "password" ? "text":"password")
+    const handleHiddenOnClick = () => {
+        setType(type === "password" ? "text" : "password")
     }
 
     return (
         <div >
             <label css={s.label}>
                 <div>{title}</div>
-                <input type={type} name={name} />
-                <div css={s.hidden} onClick={handleHiddenOnClick}>
+                <input
+                    type={type}
+                    name={name}
+                    value={value}
+                    onChange={onChange} />
+                <div
+                    css={s.hidden}
+                    onClick={handleHiddenOnClick}>
                     {
-                        type === "password" 
-                        ? <IoEyeOutline /> 
-                        : <IoEyeOffOutline />
+                        type === "password"
+                            ? <IoEyeOutline />
+                            : <IoEyeOffOutline />
                     }
                 </div>
             </label>
