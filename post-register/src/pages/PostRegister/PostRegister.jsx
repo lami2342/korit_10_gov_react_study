@@ -16,14 +16,14 @@ function PostRegister() {
     const navigate = useNavigate();
     const authentication = useAuthentication(localStorage.getItem("accessToken"));
 
-    const [interval, setInterval] = useState(null);
-    const [title, setTitle] = useState("");
-    const [value, setValue] = useState("");
-    const [thumbnail, setThumbnail] = useState({
+    const [ interval, setInterval ] = useState(null);
+    const [ title, setTitle ] = useState("");
+    const [ value, setValue ] = useState("");
+    const [ thumbnail, setThumbnail ] = useState({
         file: null,
         dataUrl: null,
     });
-    const [category, setCategory] = useState('common');
+    const [ category, setCategory ] = useState('common');
 
     const options = [
         { value: 'common', label: '일반게시글' },
@@ -54,13 +54,13 @@ function PostRegister() {
         input.onchange = (e) => {
             const files = Array.from(e.target.files);
             readFileDataUrl(files[0])
-                .then((dataUrl) => {
-                    setThumbnail(prev => ({
-                        ...prev,
-                        file: files[0],
-                        dataUrl: dataUrl,
-                    }));
-                });
+            .then((dataUrl) => {
+                setThumbnail(prev => ({
+                    ...prev,
+                    file: files[0],
+                    dataUrl: dataUrl,
+                }));
+            });
         }
 
         input.click();
@@ -71,7 +71,6 @@ function PostRegister() {
     }
 
     const handleTempSaveOnClick = () => {
-
         const tempPost = {
             "title": title,
             "content": value,
@@ -85,10 +84,10 @@ function PostRegister() {
     const handleSubmitOnClick = () => {
         let posts = JSON.parse(localStorage.getItem("posts"));
         posts = posts ?? [];
-        const ids = posts.map(post => post.id)
-        const newId = Math.max(ids.length === 0 ? 0 : ids) + 1
+        const ids = posts.map(post => post.id);
+        const newId = Math.max(...ids, 0) + 1;
         const newPost = {
-            "id": NewId,
+            "id": newId,
             "title": title,
             "content": value,
             "thumbnail": thumbnail,
@@ -163,14 +162,14 @@ function PostRegister() {
                                 </>
                             }
                         </div>
-                        <Button onClick={() => setThumbnail({ file: null, dataUrl: null })}>썸네일 삭제</Button>
+                        <Button onClick={() => setThumbnail({file: null, dataUrl: null})}>썸네일 삭제</Button>
                     </div>
                     <div css={s.categories}>
                         <label>카테고리</label>
-                        <Select options={options}
-                            defaultValue={options[0]}
-                            value={options.find(option => option.value === category)}
-                            onChange={handleCategoryOnChange} />
+                        <Select options={options} 
+                        defaultValue={options[0]} 
+                        value={options.find(option => option.value === category)} 
+                        onChange={handleCategoryOnChange} />
                     </div>
                     <div css={s.submitButtonGroup}>
                         <Button onClick={handleTempSaveOnClick}>임시저장</Button>

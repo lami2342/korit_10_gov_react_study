@@ -6,9 +6,10 @@ import { useQueryClient } from "@tanstack/react-query";
 import { useEffect } from "react";
 import PostList from "../pages/PostList/PostList";
 import PostRegister from "../pages/PostRegister/PostRegister";
+import Menus from "../pages/Menus/Menus";
 
 function RootRoutes() {
-    const {pathname} = useLocation();
+    const { pathname } = useLocation();
     const navigate = useNavigate();
     const authenticationQuery = useAuthentication(localStorage.getItem("accessToken"));
 
@@ -31,15 +32,16 @@ function RootRoutes() {
     return (
         <>
             {
-                authenticationQuery.isLoading 
-                ? <h1>로딩중</h1> 
-                : 
-                <Routes>
-                    <Route path="/" element={<PostList />} />
-                    <Route path="/write" element={<PostRegister />} />
-                    <Route path="/auth/*" element={<AuthRoutes />} />
-                    <Route path="*" element={<>페이지를 찾을 수 없습니다.</>} />
-                </Routes>
+                authenticationQuery.isLoading
+                    ? <h1>로딩중</h1>
+                    :
+                    <Routes>
+                        <Route path="/" element={<PostList />} />
+                        <Route path="/write" element={<PostRegister />} />
+                        <Route path="/menus" element={<Menus />} />
+                        <Route path="/auth/*" element={<AuthRoutes />} />
+                        <Route path="*" element={<>페이지를 찾을 수 없습니다.</>} />
+                    </Routes>
             }
         </>
     )
